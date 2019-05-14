@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BillofLanding" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1a16343-aa67-46ec-93bc-17561bfc41ea">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="mysql"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="numdoc" class="java.lang.String"/>
+	<parameter name="empresa" class="java.lang.String"/>
+	<queryString>
+	<![CDATA[SELECT RELD_TIPO, @relDoc:=RELD_NUMREL AS RELD_NUMREL, RELD_TIPDOC, MAE_DIRECCION AS DIRECCION, MAE_TELEFONO AS TLOCAL, MAE_CELULAR AS TCEL, MAE_FAX AS TFAX,
+                RELD_NUMDOC, RELD_ITEM, RELD_UND, RELD_UBICACION,
+                    RELD_EMPORG, MAE_NOMBRE AS NOMBRE_EMPORG, @empDes:=RELD_EMPDEST AS RELD_EMPDEST, 
+                        (SELECT MAE_NOMBRE FROM DNMAESTRO WHERE MAE_CODIGO=@empDes) AS NOMBRE_EMPDES, 
+                        (SELECT MAE_DIRECCION FROM DNMAESTRO WHERE MAE_CODIGO=@empDes) AS DIREMPDES,
+                        (SELECT MAE_TELEFONO FROM DNMAESTRO WHERE MAE_CODIGO=@empDes) AS TELFEMPDES,
+                        (SELECT MAE_CELULAR FROM DNMAESTRO WHERE MAE_CODIGO=@empDes) AS CELEMPDES,
+                        (SELECT MAE_FAX FROM DNMAESTRO WHERE MAE_CODIGO=@empDes) AS FAXEMPDES,
+                        (SELECT COUNT(*) FROM DNRELACION_DOCUMENTOS WHERE RELD_NUMREL=@relDoc) AS TOTAL_DOC,
+                        (SELECT SUM(RELD_ITEM) FROM DNRELACION_DOCUMENTOS WHERE RELD_NUMREL=@relDoc) AS TOTAL_ITEM, 
+                        (SELECT SUM(RELD_UND) FROM DNRELACION_DOCUMENTOS WHERE RELD_NUMREL=@relDoc) AS TOTAL_UND
+                    FROM DNRELACION_DOCUMENTOS 
+                INNER JOIN DNMAESTRO ON MAE_CODIGO = RELD_EMPORG 
+            WHERE RELD_EMPRESA=$P{empresa} AND RELD_NUMREL=$P{numdoc} GROUP BY RELD_NUMDOC]]>
+	</queryString>
+	<field name="RELD_TIPO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RELD_NUMREL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RELD_TIPDOC" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DIRECCION" class="java.lang.String"/>
+	<field name="TLOCAL" class="java.math.BigDecimal"/>
+	<field name="TCEL" class="java.math.BigDecimal"/>
+	<field name="TFAX" class="java.math.BigDecimal"/>
+	<field name="RELD_NUMDOC" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RELD_ITEM" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RELD_UND" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RELD_UBICACION" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RELD_EMPORG" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NOMBRE_EMPORG" class="java.lang.String"/>
+	<field name="RELD_EMPDEST" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NOMBRE_EMPDES" class="java.lang.String"/>
+	<field name="DIREMPDES" class="java.lang.String"/>
+	<field name="TELFEMPDES" class="java.math.BigDecimal"/>
+	<field name="CELEMPDES" class="java.math.BigDecimal"/>
+	<field name="FAXEMPDES" class="java.math.BigDecimal"/>
+	<field name="TOTAL_DOC" class="java.lang.Long"/>
+	<field name="TOTAL_ITEM" class="java.math.BigDecimal"/>
+	<field name="TOTAL_UND" class="java.math.BigDecimal"/>
+	<variable name="totaldoc" class="java.lang.String" calculation="Sum">
+		<variableExpression><![CDATA[$F{RELD_ITEM}+$F{RELD_ITEM}]]></variableExpression>
+	</variable>
+	<variable name="totalitem" class="java.lang.String" calculation="Sum">
+		<variableExpression><![CDATA[$F{RELD_ITEM}]]></variableExpression>
+	</variable>
+	<variable name="totalund" class="java.lang.String" calculation="Sum">
+		<variableExpression><![CDATA[$F{RELD_UND}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="20" width="281" height="30" uuid="af589479-5eb4-4bb9-81ee-0c8b56d85071"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="20" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[BILL OF LANDING]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="449" y="0" width="70" height="20" uuid="814ff413-ed21-49cf-82bb-8fb7faa81c2f"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Factura:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="420" y="20" width="130" height="30" uuid="b5914b4a-2378-4afc-8d17-99a115e3ff27"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="true" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{RELD_NUMREL}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="184" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="20" y="30" width="540" height="74" uuid="aab18894-8594-4d6f-bf99-7bcc8feb772c"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="20" y="104" width="540" height="69" uuid="42b4ee16-457d-41ea-a7f9-2d3a74ab41f2"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="30" y="10" width="70" height="20" uuid="9724546a-692e-42cd-a54a-9f268052575a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Nº Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="31" width="70" height="20" uuid="48a9eb00-d1aa-4da0-9045-2e4a8c918ea9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Origen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="104" width="70" height="20" uuid="af645fc3-8f89-4eb5-8903-8a064a2a00a1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Destino]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="31" width="100" height="20" uuid="63c57d01-46c0-4373-8abc-6e4b6092dbec"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{RELD_EMPORG}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="105" width="100" height="20" uuid="014977c1-feb4-44fe-8f33-ec5335281831"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{RELD_EMPDEST}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="11" width="100" height="20" uuid="0c00d170-5fbf-4352-9558-7105f516feef"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{RELD_NUMREL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="421" y="0" width="42" height="19" uuid="c541f6a7-20d8-48e2-8b99-9e676527b75d"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="468" y="0" width="89" height="19" uuid="16b90146-d5bf-4071-acb2-ead3e9541289"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="105" width="99" height="20" uuid="b7db7d2a-6b6a-4a31-8d5e-5f04b4d1b4df"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_EMPDES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="30" width="90" height="20" uuid="92b95e31-b9a6-4873-8ed1-9874d737839b"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_EMPORG}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="49" width="450" height="35" uuid="6262fee2-c87b-4e5a-9326-42aa63cc9e93"/>
+				<textFieldExpression><![CDATA[$F{DIRECCION}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="124" width="70" height="20" uuid="846cbac2-fa01-4f29-ad3d-d1dfa1a8b45e"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Dirección]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="152" width="70" height="20" uuid="47d0ae99-8bfb-43ed-959e-966e2521c1fc"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Telefonos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="153" width="5" height="20" uuid="d43b8c71-eb12-4ff7-ae84-744c244541ec"/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="152" width="5" height="20" uuid="9781ec45-c3f7-44fc-bb80-73f7fd1ae9bd"/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="84" width="5" height="20" uuid="b6b9c0d7-3c5f-4dda-9156-e460581ee646"/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="84" width="5" height="20" uuid="543680b0-f6ca-4a2d-b30b-747279293451"/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="49" width="70" height="20" uuid="8079ac10-4622-4044-a6bf-9061584e2104"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Dirección]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="84" width="70" height="20" uuid="ae19dc16-c7be-480e-9cf5-204aeae1414f"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Telefonos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="152" width="70" height="20" uuid="dfa45d02-2a04-4eaf-9763-010511be481a"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{TELFEMPDES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="152" width="67" height="20" uuid="5877e363-081c-4ff9-bc1e-a8a664c25c13"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{CELEMPDES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="262" y="153" width="78" height="20" uuid="9d705866-1d49-4afa-a785-eaca02fa410a"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{FAXEMPDES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="125" width="450" height="27" uuid="02685f82-3ea0-4eb0-91f9-56d6f96908fc"/>
+				<textFieldExpression><![CDATA[$F{DIREMPDES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="84" width="70" height="20" uuid="3872dc17-20c1-49e6-95b0-99089becf75b"/>
+				<textFieldExpression><![CDATA[$F{TLOCAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="85" width="67" height="20" uuid="c1ace73c-4bad-4598-9f24-6f9aec450236"/>
+				<textFieldExpression><![CDATA[$F{TCEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="84" width="70" height="20" uuid="67684124-ec1b-450b-8d4f-b565bf901b9b"/>
+				<textFieldExpression><![CDATA[$F{TFAX}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="21" y="2" width="539" height="18" backcolor="#11ACFF" uuid="f1a1c93d-b9cd-437a-ab4b-15ae2ae45662"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="40" y="0" width="100" height="20" uuid="31be13bd-296b-4ff5-a62f-83bc38bc0459"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nº Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="0" width="100" height="20" uuid="db100921-4001-4a3b-a217-6c7dc787df31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cantidad Items]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="0" width="100" height="20" uuid="95b644a3-c14b-4781-a05b-148025df9282"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cantidad Unidades]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="0" width="100" height="20" uuid="af0090ff-ca68-4cf6-a147-e7fee23cccb7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Ubicaciones]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<rectangle>
+				<reportElement x="21" y="0" width="539" height="20" uuid="4d57dbb0-8e09-49ce-86ff-c60d0dafe156"/>
+			</rectangle>
+			<textField>
+				<reportElement x="40" y="0" width="100" height="20" uuid="699730be-6c78-40c3-ad3a-ce4606d5b3b0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{RELD_NUMDOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="100" height="20" uuid="9e2460d0-b70d-43fe-8125-a76cb9b6b048"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{RELD_ITEM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="-1" width="92" height="21" uuid="8191888e-275c-4156-ab82-d5cc34f58692"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{RELD_UND}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="-1" width="108" height="20" uuid="e45fe3fb-6593-49b5-8e2c-bf934404f770"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{RELD_UBICACION}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="170" y="0" width="1" height="19" forecolor="#000000" uuid="6506b63c-c5a0-46d3-a2d2-3fb38beeb9b8">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="300" y="0" width="1" height="19" forecolor="#000000" uuid="588a7d02-cec8-423b-8ec5-3945a5510541">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="420" y="1" width="1" height="19" forecolor="#000000" uuid="b6fdcd06-6e6c-4e3c-bb21-4c88bf4067ba">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="69" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="386" y="4" width="174" height="64" uuid="598ccf75-088a-4db0-8ec5-716314b3e76b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="408" y="24" width="70" height="20" uuid="52d160de-2b6c-4544-bf08-49f2540441ed"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Total Item]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="408" y="44" width="70" height="20" uuid="b909fc4f-fdcb-46c1-9f30-242af6701665"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Total Unidades]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="4" width="88" height="20" uuid="81c7786b-3ee8-471f-a6bb-d1f5e3a4afd9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Total Documentos]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="490" y="4" width="61" height="20" uuid="adf8d2f5-3b48-4997-8490-2b6458b23378"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{TOTAL_DOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="24" width="61" height="20" uuid="97210ac4-1e1f-45bb-8458-95c8d057d703"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{TOTAL_ITEM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="44" width="61" height="20" uuid="41bb2efa-ccfc-4f5c-9b98-461b378b87e9"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{TOTAL_UND}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="386" y="25" width="174" height="1" uuid="5655d0f7-639c-4cf5-bceb-be4d4672cba9"/>
+			</line>
+			<line>
+				<reportElement x="386" y="43" width="174" height="1" uuid="2c24741e-e4ad-4b9b-9bbf-e1b68d1530b1"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="2" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eb66ef55-623f-47c3-9ff1-4791b41f36a1">
+	<queryString language="SQL">
+		<![CDATA[select * from dnproducto]]>
+	</queryString>
+	<field name="PRO_EMPRESA" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRO_ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Campo de ID de la Tabla]]></fieldDescription>
+	</field>
+	<field name="PRO_DATTIM" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Campo de Fecha y Hora de Creacion del Registro]]></fieldDescription>
+	</field>
+	<field name="PRO_USER" class="java.lang.String">
+		<fieldDescription><![CDATA[Usuario que Ingreso el Registro]]></fieldDescription>
+	</field>
+	<field name="PRO_MACPC" class="java.lang.String">
+		<fieldDescription><![CDATA[Mac Address del Equipo que incluyo el Registro]]></fieldDescription>
+	</field>
+	<field name="PRO_CODIGO" class="java.lang.String">
+		<fieldDescription><![CDATA[Codigo del Producto]]></fieldDescription>
+	</field>
+	<field name="PRO_CODMAE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRO_NOMBRE" class="java.lang.String">
+		<fieldDescription><![CDATA[Descripcion del Producto]]></fieldDescription>
+	</field>
+	<field name="PRO_DESCRI" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRO_TIPPREC" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRO_CODUND" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRO_UTILIZ" class="java.lang.String">
+		<fieldDescription><![CDATA[Utilizacion del Producto (Compra, Ventas, Servicio, etc)]]></fieldDescription>
+	</field>
+	<field name="PRO_TIPIVA" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRO_CATEGORIAS" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRO_MARCA" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRO_RUTAIMG" class="java.lang.String">
+		<fieldDescription><![CDATA[Codigo de Relacion del Producto con el Sub-Grupo]]></fieldDescription>
+	</field>
+	<field name="PRO_ACTIVO" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Pagos_Abonos_notas_credito" language="groovy" pageWidth="572" pageHeight="752" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9737ecf2-06c1-41f4-9644-ccf9e3d81742">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="empresa" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="idFiscal" class="java.lang.String"/>
+	<parameter name="numDoc" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT pag_frmpag,pag_fecha,b.razon_social,b.rif,b.pers_id,a.numdoc_orig,a.inv_coddoc,a.inv_codpro,
+       a.inv_numdoc,a.inv_compcontab, a.inv_unidad,a.inv_precio,a.inv_costo,a.inv_porcent_dscto,
+       a.inv_despro,SUM(inv_base) AS inv_base, SUM(inv_mtoiva) AS inv_mtoiva, SUM(inv_total) AS inv_total, 
+       inv_fecha, inv_fchdoc, inv_condic, inv_cred_dias, inv_codven, inv_status_action, inv_status,
+       type_doc_ori,
+       IF(ISNULL((SELECT SUM(inv_total) FROM dninventario
+                  INNER JOIN dnpersonas ON dnpersonas.pers_id=dninventario.pers_id
+	        WHERE (numdoc_orig IS NOT NULL) AND (inv_status='Aplicada' OR inv_status='Abono') AND
+                         rif=b.rif AND numdoc_orig=a.numdoc_orig AND inv_coddoc='CRE')), 0, 
+                 (SELECT SUM(inv_total) FROM dninventario 
+	        INNER JOIN dnpersonas ON dnpersonas.pers_id=dninventario.pers_id
+	        WHERE (numdoc_orig IS NOT NULL) AND (inv_status='Aplicada' OR inv_status='Abono') AND
+                         rif=b.rif AND numdoc_orig=a.numdoc_orig  AND inv_coddoc='CRE')) AS pagos,
+      (SELECT SUM(inv_total) FROM dninventario  
+       INNER JOIN dnpersonas ON dnpersonas.pers_id=dninventario.pers_id
+       INNER JOIN dndocumentos ON dndocumentos.doc_codigo=inv_coddoc
+       WHERE (numdoc_orig IS NULL) AND dndocumentos.doc_cobros=1 AND rif=b.rif AND inv_numdoc=a.numdoc_orig 
+       GROUP BY inv_numdoc) AS mtoDoc,
+     ((SELECT SUM(inv_total) FROM dninventario  
+       INNER JOIN dnpersonas ON dnpersonas.pers_id=dninventario.pers_id
+       INNER JOIN dndocumentos ON dndocumentos.doc_codigo=inv_coddoc
+       WHERE (numdoc_orig IS NULL) AND dndocumentos.doc_cobros=1 AND rif=b.rif AND inv_numdoc=a.numdoc_orig GROUP BY inv_numdoc)-a.inv_total) AS saldo
+FROM dninventario AS a
+INNER JOIN dnpersonas AS b ON b.pers_id=a.pers_id
+LEFT JOIN dnpagos ON dnpagos.numdoc_orig=a.inv_numdoc
+INNER JOIN dndocumentos ON dndocumentos.doc_codigo=inv_coddoc
+WHERE a.inv_empresa=$P{empresa} AND (a.numdoc_orig IS NOT NULL) AND (inv_status='Aplicada' OR
+      inv_status='Abono') AND rif=$P{idFiscal} AND inv_coddoc='CRE' AND a.numdoc_orig=$P{numDoc}
+GROUP BY a.pers_id,a.inv_numdoc,a.numdoc_orig
+ORDER BY a.numdoc_orig;]]>
+	</queryString>
+	<field name="pag_frmpag" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pag_fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="razon_social" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rif" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pers_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numdoc_orig" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_coddoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_codpro" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_numdoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_compcontab" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_unidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_precio" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_costo" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_porcent_dscto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_despro" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_base" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_mtoiva" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_total" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_fchdoc" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_condic" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_cred_dias" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_codven" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_status_action" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inv_status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="type_doc_ori" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pagos" class="java.math.BigDecimal"/>
+	<field name="mtoDoc" class="java.math.BigDecimal"/>
+	<field name="saldo" class="java.math.BigDecimal"/>
+	<group name="numdoc_orig">
+		<groupExpression><![CDATA[$F{numdoc_orig}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<rectangle>
+				<reportElement x="163" y="2" width="409" height="20" backcolor="#F2F2F2" uuid="15f8c84b-96e2-4c64-95ca-1ae99d8a7bfa"/>
+			</rectangle>
+			<textField>
+				<reportElement x="324" y="2" width="58" height="20" uuid="5dfa5ba6-9e57-424a-9963-67213792b782"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{inv_numdoc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="168" y="2" width="157" height="20" uuid="61e5e3f4-da09-470d-b093-7f3a8d9f979e"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° de Nota de Crédito Aplicada:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="410" y="2" width="76" height="20" forecolor="#FF0033" uuid="5147be83-7110-4042-9a2d-6526b9b67533"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{inv_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="2" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="572" height="1" uuid="fb1976ae-163a-4b3c-98b4-160da5d68ce2"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

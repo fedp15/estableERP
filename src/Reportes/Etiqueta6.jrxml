@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Etiqueta6" language="groovy" columnCount="2" pageWidth="612" pageHeight="792" columnWidth="291" columnSpacing="10" leftMargin="8" rightMargin="12" topMargin="10" bottomMargin="5" uuid="3815ca21-bffe-411d-a141-d47928b35341">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="mysql"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="tipdoc" class="java.lang.String"/>
+	<parameter name="empresa" class="java.lang.String"/>
+	<parameter name="numDesde" class="java.lang.String"/>
+	<parameter name="numHasta" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT INV_NUMDOC, SUM((INV_FISICO*INV_CANTID)) AS CANTIDA_UND, COUNT(*) AS CANTIDA_ITEM,CONCAT(INV_UBICACION,' - ', UBI_DESCRI) AS INV_UBICACION, UBI_DESCRI  FROM DNINVENTARIO INNER JOIN DNUBICACION_PRODUCTOS ON UBI_CODIGO = INV_UBICACION
+WHERE INV_CODDOC=$P{tipdoc} AND INV_EMPRESA=$P{empresa} and INV_NUMDOC>=$P{numDesde} AND INV_NUMDOC<=$P{numHasta} group by inv_numdoc]]>
+	</queryString>
+	<field name="INV_NUMDOC" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CANTIDA_UND" class="java.math.BigDecimal"/>
+	<field name="CANTIDA_ITEM" class="java.lang.Long"/>
+	<field name="INV_UBICACION" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="UBI_DESCRI" class="java.lang.String">
+		<fieldDescription><![CDATA[Descripcion de la Ubicacion]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="48" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="240" splitType="Stretch">
+			<rectangle>
+				<reportElement x="10" y="0" width="260" height="205" uuid="1f32971f-c6d8-45da-9d79-4dc6faef2188"/>
+			</rectangle>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="145" y="3" width="100" height="20" uuid="5878fd43-7310-45f4-a549-4154d23858e6"/>
+				<textFieldExpression><![CDATA[$F{INV_NUMDOC}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement isPrintRepeatedValues="false" x="20" y="25" width="240" height="35" uuid="29504149-be77-4ce0-8130-3f812f8fd5eb"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{INV_NUMDOC}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="80" y="145" width="120" height="20" uuid="aef41fbf-ea0c-4b7f-8f6c-abca79e03716"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{UBI_DESCRI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="175" y="120" width="70" height="20" uuid="39827b07-b7ad-4f7f-a5dc-a48d44749b4d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CANTIDA_UND}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="175" y="92" width="70" height="20" uuid="c365a54a-e4c4-413f-ac5b-a2d999b0fbcc"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CANTIDA_ITEM}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement isPrintRepeatedValues="false" x="18" y="170" width="240" height="30" uuid="3d41a430-ca16-40f1-9142-591c0f53d8d7"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{UBI_DESCRI}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<staticText>
+				<reportElement x="80" y="120" width="90" height="20" uuid="b6039d07-4016-450d-9b77-853ca876aac3"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Total de Unidades:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="92" width="70" height="20" uuid="0becfa3b-0b24-42be-90ed-9687810010f4"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Total de Items:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="65" width="40" height="20" uuid="2255c4ea-4ef4-4b7c-99ef-e8e4d700e800"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="MMM d, yyyy">
+				<reportElement x="130" y="65" width="90" height="21" uuid="690ff674-ce4c-402d-86a4-03219525b361"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="70" y="3" width="70" height="20" uuid="af8f5413-f3b8-4480-af0b-33678686890b"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Packing List: ]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="30" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Etiqueta_caja" language="groovy" pageWidth="612" pageHeight="792" orientation="Landscape" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="497c85dc-85d6-45c7-94fa-0130ad0b6065">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="mysql"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="numdoc" class="java.lang.String"/>
+	<parameter name="tipdoc" class="java.lang.String"/>
+	<parameter name="empresa" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT INV_NUMDOC, SUM((INV_FISICO*INV_CANTID)) AS CANTIDA_UND, COUNT(*) AS CANTIDA_ITEM,CONCAT(INV_UBICACION,' - ', UBI_DESCRI) AS INV_UBICACION, UBI_DESCRI  FROM DNINVENTARIO INNER JOIN DNUBICACION_PRODUCTOS ON UBI_CODIGO = INV_UBICACION WHERE INV_NUMDOC=$P{numdoc} AND INV_CODDOC=$P{tipdoc} AND INV_EMPRESA=$P{empresa}]]>
+	</queryString>
+	<field name="INV_NUMDOC" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CANTIDA_UND" class="java.math.BigDecimal"/>
+	<field name="CANTIDA_ITEM" class="java.lang.Long"/>
+	<field name="INV_UBICACION" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="UBI_DESCRI" class="java.lang.String">
+		<fieldDescription><![CDATA[Descripcion de la Ubicacion]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="223" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="30452d7b-0ed1-4d8e-ab76-27d862b46284" x="0" y="0" width="572" height="221"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="32133a33-5d70-4e10-839c-2002ad697797" x="10" y="10" width="550" height="28"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Packing List]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7f3c8ba8-fe38-4024-9cc8-7e24053bca32" x="22" y="48" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[Total Items]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d35141fe-5a4a-40ed-b63e-b62a14f028c0" x="22" y="80" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[Total Unidades]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8bc050d3-441d-4871-a02b-8c0970fe45fd" x="250" y="100" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[Documento Nº:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="58863dd6-b160-4ae9-b940-b4358f6f44bd" x="250" y="160" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[Ubicacion:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="c06de7a9-7ff1-49d7-a67f-ba1ebebc5837" x="100" y="50" width="100" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CANTIDA_ITEM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8238da5a-f320-471d-bf25-c10e64fe9477" x="100" y="80" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CANTIDA_UND}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement uuid="aeaa1947-6b9d-4c28-90ed-e0677671fe7a" x="330" y="90" width="220" height="30"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{INV_NUMDOC}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<componentElement>
+				<reportElement uuid="df466cfc-45a0-4d27-896b-0fa8eb1dfe2e" x="330" y="148" width="220" height="32"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{UBI_DESCRI}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<staticText>
+				<reportElement uuid="eb7e1c25-87ae-43b2-8ced-20750e993f6f" x="359" y="43" width="51" height="20"/>
+				<textElement/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="MMM d, yyyy">
+				<reportElement uuid="3290cf6c-bb31-4749-989d-212b93836753" x="420" y="40" width="110" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="47850353-7260-49ab-a41b-d0ea1cd4b94e" x="370" y="180" width="133" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{UBI_DESCRI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="49aca41b-d9ef-46ce-b80f-7698bab4089a" x="370" y="120" width="133" height="18"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{INV_NUMDOC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="6" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="1" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="32" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="2" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="4" splitType="Stretch"/>
+	</summary>
+</jasperReport>

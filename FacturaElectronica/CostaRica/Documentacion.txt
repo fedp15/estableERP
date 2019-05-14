@@ -1,0 +1,5 @@
+https://github.com/JonhCR/FirmaXadesEpes
+
+https://crlibre.org/qa/integracion-de-servicios-web-de-hacienda-con-java/
+https://crlibre.org/qa/como-iniciar-con-el-desarrollo-o-integracion-de-comprobantes-electronicos/
+https://flecharoja.com/blog/2017-11/integracion-factura-digital/

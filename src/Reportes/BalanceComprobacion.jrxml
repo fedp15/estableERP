@@ -1,0 +1,835 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ceb94d5c-45b7-472e-aa1a-eacae82682ba">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="263"/>
+	<field name="cuenta" class="java.lang.String"/>
+	<field name="cta_nombre" class="java.lang.String"/>
+	<field name="total" class="java.lang.Double"/>
+	<field name="cta_nivel_1" class="java.lang.String"/>
+	<field name="cta_nivel_2" class="java.lang.String"/>
+	<field name="cta_nivel_3" class="java.lang.String"/>
+	<field name="cta_nivel_4" class="java.lang.String"/>
+	<field name="cta_nivel_5" class="java.lang.String"/>
+	<field name="cta_nivel_6" class="java.lang.String"/>
+	<field name="cta_nivel_7" class="java.lang.String"/>
+	<field name="cta_nivel_8" class="java.lang.String"/>
+	<field name="cta_nombre_nivel_1" class="java.lang.String"/>
+	<field name="cta_nombre_nivel_2" class="java.lang.String"/>
+	<field name="cta_nombre_nivel_3" class="java.lang.String"/>
+	<field name="cta_nombre_nivel_4" class="java.lang.String"/>
+	<field name="cta_nombre_nivel_5" class="java.lang.String"/>
+	<field name="cta_nombre_nivel_6" class="java.lang.String"/>
+	<field name="cta_nombre_nivel_7" class="java.lang.String"/>
+	<field name="cta_nombre_nivel_8" class="java.lang.String"/>
+	<field name="total_nivel_1" class="java.lang.String"/>
+	<field name="total_nivel_2" class="java.lang.String"/>
+	<field name="total_nivel_3" class="java.lang.String"/>
+	<field name="total_nivel_4" class="java.lang.String"/>
+	<field name="total_nivel_5" class="java.lang.String"/>
+	<field name="total_nivel_6" class="java.lang.String"/>
+	<field name="total_nivel_7" class="java.lang.String"/>
+	<field name="total_nivel_8" class="java.lang.String"/>
+	<field name="descripTotal_nivel_1" class="java.lang.String"/>
+	<field name="descripTotal_nivel_2" class="java.lang.String"/>
+	<field name="descripTotal_nivel_3" class="java.lang.String"/>
+	<field name="descripTotal_nivel_4" class="java.lang.String"/>
+	<field name="descripTotal_nivel_5" class="java.lang.String"/>
+	<field name="descripTotal_nivel_6" class="java.lang.String"/>
+	<field name="descripTotal_nivel_7" class="java.lang.String"/>
+	<field name="descripTotal_nivel_8" class="java.lang.String"/>
+	<field name="saldoInicial" class="java.lang.Double"/>
+	<field name="totalDebe" class="java.lang.Double"/>
+	<field name="totalHaber" class="java.lang.Double"/>
+	<field name="ctaNivel" class="java.lang.Integer"/>
+	<field name="totalActivos" class="java.lang.Double"/>
+	<field name="totalPasivoCapital" class="java.lang.Double"/>
+	<field name="totalEgresoIngresos" class="java.lang.Double"/>
+	<field name="saldoActualFinal" class="java.lang.Double"/>
+	<variable name="totalDebe_1" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_1" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalDebe}]]></variableExpression>
+	</variable>
+	<variable name="totalDebe_2" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_2" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalDebe}]]></variableExpression>
+	</variable>
+	<variable name="totalDebe_3" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_3" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalDebe}]]></variableExpression>
+	</variable>
+	<variable name="totalDebe_4" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_4" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalDebe}]]></variableExpression>
+	</variable>
+	<variable name="totalDebe_5" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_5" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalDebe}]]></variableExpression>
+	</variable>
+	<variable name="totalDebe_6" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_6" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalDebe}]]></variableExpression>
+	</variable>
+	<variable name="totalDebe_7" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_7" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalDebe}]]></variableExpression>
+	</variable>
+	<variable name="totalHaber_1" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_1" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalHaber}]]></variableExpression>
+	</variable>
+	<variable name="totalHaber_2" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_2" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalHaber}]]></variableExpression>
+	</variable>
+	<variable name="totalHaber_3" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_3" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalHaber}]]></variableExpression>
+	</variable>
+	<variable name="totalHaber_4" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_4" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalHaber}]]></variableExpression>
+	</variable>
+	<variable name="totalHaber_5" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_5" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalHaber}]]></variableExpression>
+	</variable>
+	<variable name="totalHaber_6" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_6" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalHaber}]]></variableExpression>
+	</variable>
+	<variable name="totalHaber_7" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_7" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalHaber}]]></variableExpression>
+	</variable>
+	<variable name="saldoActual" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{saldoInicial}+$F{totalDebe}+$F{totalHaber}]]></variableExpression>
+	</variable>
+	<variable name="saldoActual_1" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{saldoInicial_1}+$V{totalDebe_1}+$V{totalHaber_1}]]></variableExpression>
+	</variable>
+	<variable name="saldoActual_2" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{saldoInicial_2}+$V{totalDebe_2}+$V{totalHaber_2}]]></variableExpression>
+	</variable>
+	<variable name="saldoActual_3" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{saldoInicial_3}+$V{totalDebe_3}+$V{totalHaber_3}]]></variableExpression>
+	</variable>
+	<variable name="saldoActual_4" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{saldoInicial_4}+$V{totalDebe_4}+$V{totalHaber_4}]]></variableExpression>
+	</variable>
+	<variable name="saldoActual_5" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{saldoInicial_5}+$V{totalDebe_5}+$V{totalHaber_5}]]></variableExpression>
+	</variable>
+	<variable name="saldoActual_6" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{saldoInicial_6}+$V{totalDebe_6}+$V{totalHaber_6}]]></variableExpression>
+	</variable>
+	<variable name="saldoActual_7" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{saldoInicial_7}+$V{totalDebe_7}+$V{totalHaber_7}]]></variableExpression>
+	</variable>
+	<variable name="saldoActual_8" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{totalDebe_8}+$V{totalHaber_8}]]></variableExpression>
+	</variable>
+	<variable name="totalDebe_8" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalDebe}]]></variableExpression>
+	</variable>
+	<variable name="totalHaber_8" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalHaber}]]></variableExpression>
+	</variable>
+	<variable name="saldoInicial_1" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_1" calculation="Sum">
+		<variableExpression><![CDATA[$F{saldoInicial}]]></variableExpression>
+	</variable>
+	<variable name="saldoInicial_2" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_2" calculation="Sum">
+		<variableExpression><![CDATA[$F{saldoInicial}]]></variableExpression>
+	</variable>
+	<variable name="saldoInicial_3" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_3" calculation="Sum">
+		<variableExpression><![CDATA[$F{saldoInicial}]]></variableExpression>
+	</variable>
+	<variable name="saldoInicial_4" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_4" calculation="Sum">
+		<variableExpression><![CDATA[$F{saldoInicial}]]></variableExpression>
+	</variable>
+	<variable name="saldoInicial_5" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_5" calculation="Sum">
+		<variableExpression><![CDATA[$F{saldoInicial}]]></variableExpression>
+	</variable>
+	<variable name="saldoInicial_6" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_6" calculation="Sum">
+		<variableExpression><![CDATA[$F{saldoInicial}]]></variableExpression>
+	</variable>
+	<variable name="saldoInicial_7" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_7" calculation="Sum">
+		<variableExpression><![CDATA[$F{saldoInicial}]]></variableExpression>
+	</variable>
+	<variable name="saldoInicial_8" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_7" calculation="Sum">
+		<variableExpression><![CDATA[$F{saldoInicial}]]></variableExpression>
+	</variable>
+	<variable name="total_1" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_7" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="total_2" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_2" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="total_3" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_3" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="total_4" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_4" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="total_5" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_5" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="total_6" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_6" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="total_7" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_7" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="total_8" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_1" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="total_9" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_2" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="total_10" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_3" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="total_11" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_4" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="total_12" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_5" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="total_13" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_6" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="total_14" class="java.lang.Double" resetType="Group" resetGroup="grupo_nivel_7" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<group name="grupo_nivel_1">
+		<groupExpression><![CDATA[$F{cta_nivel_1}]]></groupExpression>
+		<groupFooter>
+			<band height="24">
+				<printWhenExpression><![CDATA[!$F{descripTotal_nivel_1}.equals("")]]></printWhenExpression>
+				<textField>
+					<reportElement isPrintRepeatedValues="false" x="84" y="0" width="153" height="15" isRemoveLineWhenBlank="true" uuid="d06fa7c4-edd8-4b56-9f08-57ad734c4e5a"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{descripTotal_nivel_1}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="345" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="9ebf69fe-d590-4411-9d7e-075d00648df6"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalDebe_1}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="415" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="d1d59107-cc80-47ee-82bd-cccedb78ff3c"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalHaber_1}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="275" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="18c62c41-69fa-4dbc-89b0-476289d7b03d"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{saldoInicial_1}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement x="485" y="0" width="69" height="15" uuid="4a86e362-9020-47c1-9b0d-fd22aeab5a1f"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total_8}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="grupo_nivel_2">
+		<groupExpression><![CDATA[$F{cta_nivel_2}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="15">
+				<printWhenExpression><![CDATA[!$F{descripTotal_nivel_2}.equals("") && $F{ctaNivel}>1]]></printWhenExpression>
+				<textField>
+					<reportElement isPrintRepeatedValues="false" x="84" y="0" width="153" height="15" isRemoveLineWhenBlank="true" uuid="3d4cc7c1-6f3c-4954-ad26-dc8732f540c3"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{descripTotal_nivel_2}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="345" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="998473e8-600a-4704-b1c6-ccb993d87e7b"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalDebe_2}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="415" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="cd1ff76b-7168-4fac-a289-e2d9786434b4"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalHaber_2}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="275" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="65595dad-33aa-4f68-a214-f8005dd5125e"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{saldoInicial_2}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement x="485" y="0" width="69" height="15" uuid="1f26799e-e306-48be-94ff-4154fa594123"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total_9}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="grupo_nivel_3">
+		<groupExpression><![CDATA[$F{cta_nivel_3}]]></groupExpression>
+		<groupFooter>
+			<band height="15">
+				<printWhenExpression><![CDATA[!$F{descripTotal_nivel_3}.equals("") && $F{ctaNivel}>2]]></printWhenExpression>
+				<textField>
+					<reportElement isPrintRepeatedValues="false" x="84" y="0" width="153" height="15" isRemoveLineWhenBlank="true" uuid="5c1e9511-1c63-4e63-b1b0-d5f7e7711b3b"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{descripTotal_nivel_3}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="345" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="22fde249-c644-43a6-bc00-d3433331dfaf"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalDebe_3}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="415" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="6ca9c48c-c5f9-4a9b-a170-ae2ca1241420"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalHaber_3}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="275" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="8c410a64-8c6c-4e80-b118-497021bb8097"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{saldoInicial_3}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement x="485" y="0" width="69" height="15" uuid="fbc275e9-0b3a-4e38-8952-1d248878affa"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total_10}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="grupo_nivel_4">
+		<groupExpression><![CDATA[$F{cta_nivel_4}]]></groupExpression>
+		<groupFooter>
+			<band height="15">
+				<printWhenExpression><![CDATA[!$F{descripTotal_nivel_4}.equals("") && $F{ctaNivel}>3]]></printWhenExpression>
+				<textField>
+					<reportElement isPrintRepeatedValues="false" x="84" y="1" width="153" height="13" isRemoveLineWhenBlank="true" uuid="b2b8e9c2-747d-4bac-ba60-8481939cf402"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{descripTotal_nivel_4}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="grupo_nivel_4" pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="345" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="35f0f898-c1e6-4bca-b3fd-7c1932b9cbe0"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalDebe_4}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="grupo_nivel_4" pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="415" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="7d428107-c6e7-4f00-ba3d-3deffabe2baa"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalHaber_4}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="275" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="1ede2247-5385-4628-b5a8-69c80b4249dd"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{saldoInicial_4}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement x="485" y="0" width="69" height="15" uuid="44d5b42b-79cd-4410-b904-6de21fa7d12f"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total_11}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="grupo_nivel_5">
+		<groupExpression><![CDATA[$F{cta_nivel_5}]]></groupExpression>
+		<groupFooter>
+			<band height="15">
+				<printWhenExpression><![CDATA[!$F{descripTotal_nivel_5}.equals("") && $F{ctaNivel}>4]]></printWhenExpression>
+				<textField>
+					<reportElement isPrintRepeatedValues="false" x="84" y="0" width="153" height="15" isRemoveLineWhenBlank="true" uuid="cc082d12-c78e-4adf-82eb-8658abf133cd"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{descripTotal_nivel_5}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="grupo_nivel_5" pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="345" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="d25f7a1c-9464-4e23-9566-ec568d3fb295"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalDebe_5}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="grupo_nivel_5" pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="415" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="7b50d4cf-642d-43b1-a580-237bbb7c0047"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalHaber_5}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="275" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="bf26bbce-09a9-4943-92ed-6ba8611eab42"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{saldoInicial_5}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement x="485" y="0" width="70" height="15" uuid="57c263ba-027e-4965-9c1b-9975127b5207"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total_12}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="grupo_nivel_6">
+		<groupExpression><![CDATA[$F{cta_nivel_6}]]></groupExpression>
+		<groupFooter>
+			<band height="15">
+				<printWhenExpression><![CDATA[!$F{descripTotal_nivel_6}.equals("")&& $F{ctaNivel}>5]]></printWhenExpression>
+				<textField>
+					<reportElement isPrintRepeatedValues="false" x="84" y="0" width="153" height="15" isRemoveLineWhenBlank="true" uuid="e176411b-d312-4839-b502-cc328cbbc562"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{descripTotal_nivel_6}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="grupo_nivel_6" pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="345" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="a963d483-7c64-42a9-b29f-dedb1f38b96d"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalDebe_6}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="grupo_nivel_6" pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="415" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="ae95eadb-a58f-4774-ab59-a286d79e6cd6"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalHaber_6}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="275" y="0" width="70" height="15" isRemoveLineWhenBlank="true" uuid="e8796800-bd04-4513-805b-593203cc9710"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{saldoInicial_6}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement x="485" y="0" width="69" height="15" uuid="f13fc207-713f-48da-a30c-37fcf6f94c74"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total_13}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="grupo_nivel_7">
+		<groupExpression><![CDATA[$F{cta_nivel_7}]]></groupExpression>
+		<groupFooter>
+			<band height="14">
+				<printWhenExpression><![CDATA[!$F{descripTotal_nivel_7}.equals("") && $F{ctaNivel}>6]]></printWhenExpression>
+				<textField>
+					<reportElement isPrintRepeatedValues="false" x="84" y="1" width="153" height="13" isRemoveLineWhenBlank="true" uuid="de4cf6fc-fbe9-4fa4-a466-e3880afdf008"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{descripTotal_nivel_7}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="grupo_nivel_7" pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="415" y="0" width="70" height="14" isRemoveLineWhenBlank="true" uuid="28f74ecc-4e12-4412-a66a-13747c6f3ada"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalHaber_7}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="grupo_nivel_7" pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="345" y="0" width="70" height="14" isRemoveLineWhenBlank="true" uuid="67fcf5f9-994a-4dab-aee6-972ea6fa4b76"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalDebe_7}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement isPrintRepeatedValues="false" x="275" y="-1" width="70" height="15" isRemoveLineWhenBlank="true" uuid="5d6390ff-08fb-4ca4-b32d-a3f87d2f8af0"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{saldoInicial_7}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement x="485" y="0" width="69" height="14" uuid="025fd66d-b153-4d74-ac64-ebdcbe908176"/>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total_14}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="grupo_nivel_8">
+		<groupExpression><![CDATA[$F{cta_nivel_8}]]></groupExpression>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="76" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="43" width="555" height="23" uuid="fd3eb492-1b4b-46da-80d2-432e9f637651"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Balance de Comprobación]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="524" y="20" width="30" height="15" uuid="ccf469b7-ae30-41b0-955a-6fda9b8a42e8"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="424" y="20" width="100" height="15" uuid="5c06c940-1ceb-497b-a407-44afc00ae83d"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Página:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="ca969df5-88a0-4fce-b734-b079e9e9683f"/>
+				<text><![CDATA[Omnix Solutions]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="3" width="78" height="20" uuid="ed2e8699-f3ff-4191-80b1-5d1e9997d359"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="84" y="2" width="153" height="20" uuid="c6cc7591-23dc-4cdf-be19-52e5957e65eb"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="485" y="3" width="70" height="20" uuid="7c041490-944b-4772-bfe7-e0fe7ee44e14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="22" width="555" height="1" uuid="09fdac36-4181-4a71-bfeb-b70dabf317b0"/>
+			</line>
+			<line>
+				<reportElement x="0" y="2" width="555" height="1" uuid="60caf2e9-b2fe-4277-97ee-606b28f96a58"/>
+			</line>
+			<staticText>
+				<reportElement x="415" y="3" width="70" height="20" uuid="217e2b16-5bbd-4aed-b12f-2872596d0414"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Haber]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="3" width="70" height="20" uuid="e9663635-daab-4ccd-b63f-8ff02ef47b3c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Debe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="3" width="70" height="20" uuid="50c096a3-59e1-4f85-99c9-39b081003a26"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Saldo Inicial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="1" width="100" height="20" uuid="bac8f19f-1a2a-4b97-ab74-e04cb75dc39c"/>
+				<text><![CDATA[total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="137" splitType="Stretch">
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="2" y="1" width="78" height="15" isRemoveLineWhenBlank="true" uuid="b786a705-2914-42c4-a98f-a40df2e4bc7f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nivel_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="2" y="16" width="78" height="15" isRemoveLineWhenBlank="true" uuid="394f05ae-491c-4084-bf74-1110a618613e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nivel_2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="2" y="31" width="78" height="15" isRemoveLineWhenBlank="true" uuid="6f18a12a-f50a-44fe-97be-079e74df0e4e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nivel_3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="2" y="46" width="78" height="15" isRemoveLineWhenBlank="true" uuid="2aabe24b-27ee-445e-9623-6f8f8da24738"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nivel_4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="2" y="61" width="78" height="15" isRemoveLineWhenBlank="true" uuid="849c730c-e391-447f-bf9c-04d3bdda9ee6"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nivel_5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="2" y="76" width="78" height="15" isRemoveLineWhenBlank="true" uuid="2c576de5-bbc4-4c5b-b27c-ee0b83303a49"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nivel_6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="2" y="91" width="78" height="15" isRemoveLineWhenBlank="true" uuid="e86847cb-fcf8-47fb-a59e-d371b1562362"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nivel_7}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="2" y="106" width="78" height="15" isRemoveLineWhenBlank="true" uuid="dadb4ac6-77bb-4cec-8c65-0fc351485800"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nivel_8}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="2" y="121" width="78" height="15" isRemoveLineWhenBlank="true" uuid="1e334afc-3695-4b6a-b8d9-0dcf36892f00"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cuenta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="121" width="153" height="15" uuid="0a5f619f-4a82-4bea-bb8d-858ad1e19519"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nombre}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="262" y="136" width="293" height="1" isRemoveLineWhenBlank="true" uuid="c3cfa89e-b596-4a0c-a32e-4dced9ae756d"/>
+			</line>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="84" y="1" width="153" height="15" isRemoveLineWhenBlank="true" uuid="3a74443a-e273-4bee-9c56-c8a0c39cbad4"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nombre_nivel_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="84" y="16" width="153" height="15" isRemoveLineWhenBlank="true" uuid="b69e8329-7cec-4057-b980-40ef260151be"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nombre_nivel_2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="84" y="31" width="153" height="15" isRemoveLineWhenBlank="true" uuid="d9f5bf63-3705-4c43-9d54-1cf063bf644e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nombre_nivel_3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="84" y="46" width="153" height="15" isRemoveLineWhenBlank="true" uuid="6133a049-bd27-429c-9cce-8ab873b06cef"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nombre_nivel_4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="84" y="61" width="153" height="15" isRemoveLineWhenBlank="true" uuid="08811650-cf78-47aa-b114-7b5b4c03e552"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nombre_nivel_5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="84" y="76" width="153" height="15" isRemoveLineWhenBlank="true" uuid="9d2fe2f5-09e7-4c18-aff4-d7f86e0f208b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nombre_nivel_6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="84" y="91" width="153" height="15" isRemoveLineWhenBlank="true" uuid="f9996dba-10ad-4fb5-996f-eda42c8e8668"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nombre_nivel_7}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="84" y="106" width="153" height="15" isRemoveLineWhenBlank="true" uuid="ad7e99cf-7294-4955-b1dc-58cc3649b13a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cta_nombre_nivel_8}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="415" y="121" width="70" height="15" uuid="8d7d944b-303f-40dd-a198-51da6cb43e11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalHaber}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="345" y="121" width="70" height="15" uuid="f57b71d0-4b24-48c3-831b-f89527fa76fd"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalDebe}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="275" y="121" width="70" height="15" uuid="f914df4b-20e5-40f2-8afb-3abd71c940eb"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{saldoInicial}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="485" y="121" width="69" height="15" uuid="e6b83ccd-33cf-41c8-b375-b8249223f07d"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{saldoActual}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="50" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="25" width="552" height="1" uuid="a51279f9-17c9-4163-baa5-8f1ac268df0f"/>
+			</line>
+			<staticText>
+				<reportElement x="84" y="5" width="157" height="19" uuid="49839956-f0c3-4791-8374-9f84d2968c70"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Balance de Comprobación]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;#,##0.00-">
+				<reportElement x="452" y="26" width="100" height="20" uuid="0d3a810b-5586-4fa5-81cf-b76d6b34c474"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalEgresoIngresos}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;#,##0.00-">
+				<reportElement x="262" y="26" width="91" height="20" uuid="c25aeb0a-f17b-448b-8ff9-aa31ef558f39"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalPasivoCapital}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="367" y="26" width="85" height="20" uuid="f9e2dd2b-5640-4619-9928-f4509cd46a6c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Egreso + Ingresos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="189" y="26" width="73" height="20" uuid="1a7dd4d0-c5c7-43cb-a754-ea1c6231b72b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pasivo + Capital:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="5" width="552" height="1" uuid="3eff4347-5ad7-4001-bc49-95ec44a83e47"/>
+			</line>
+			<textField pattern="#,##0.00;#,##0.00-">
+				<reportElement x="78" y="26" width="89" height="20" uuid="cfe1872c-bdf0-47a3-9763-f74247346423"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalActivos}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="46" width="552" height="1" uuid="254e037e-d285-4885-b535-a238070a96e3"/>
+			</line>
+			<staticText>
+				<reportElement x="14" y="26" width="64" height="20" uuid="e3a1ee68-4b39-4302-bdfb-9cba7f8cb854"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Activo:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="345" y="5" width="70" height="19" uuid="17c83602-64be-406c-b33b-3cd9111b1e41"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalDebe_8}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="415" y="5" width="70" height="19" uuid="43b2364f-1c1b-4905-a557-6d6976d9e428"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalHaber_8}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="491" y="5" width="61" height="19" uuid="4158e83f-30f5-493b-a09a-586f24ec6d4b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{saldoActual_8}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

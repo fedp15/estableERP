@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="POSReportComisionDet" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b3a021b5-b08c-45d3-84e0-784128c8349b">
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="numDocumento" class="java.lang.String"/>
+	<field name="fecha" class="java.lang.String"/>
+	<field name="total" class="java.lang.Float"/>
+	<field name="codVend" class="java.lang.String"/>
+	<field name="VendNombre" class="java.lang.String"/>
+	<field name="rangoVend" class="java.lang.String"/>
+	<field name="rangoFecha" class="java.lang.String"/>
+	<field name="Comision" class="java.lang.Double"/>
+	<variable name="SumTotal" class="java.lang.Float" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="SumComision" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{Comision}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="68" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="c3a15bca-7a73-493b-840a-4e92da4e7c28" x="0" y="10" width="571" height="36"/>
+				<textElement textAlignment="Center">
+					<font size="19"/>
+				</textElement>
+				<text><![CDATA[Comisiones de Vendedor Detallado	]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="63" splitType="Stretch">
+			<textField>
+				<reportElement uuid="34ce0919-d0d2-464f-9f91-bff7d9fae090" x="10" y="8" width="110" height="22"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{rangoVend}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d74f20ef-2426-4b91-ae4e-e3b7d87f2011" x="10" y="40" width="150" height="22"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{rangoFecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7a3f9b4c-abdb-4e5b-8e4a-3a5930c10ac8" x="120" y="8" width="260" height="22"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{VendNombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1f450648-6be0-4a50-bc50-4c4a1ce13ea2" x="10" y="10" width="110" height="19"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="25382fdf-1e2b-4fb2-aa37-e330de46b400" x="160" y="11" width="110" height="17"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6f48efe4-9631-4dac-8454-428ad832ce3c" x="320" y="10" width="110" height="18"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="349fea16-fe10-4b53-bae8-bb00dc1eec48" x="450" y="12" width="110" height="17"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comision]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="4ea62e33-a30f-4154-b325-c3b368712a7a" x="0" y="30" width="571" height="1">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement uuid="ff54efbb-3e3d-4ff4-bdf3-1d1b177045cd" x="10" y="1" width="110" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{numDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="72297cff-317c-4c8e-ac83-3de69f3a227a" x="160" y="0" width="110" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b9209b03-77fa-4f5e-8c59-d57d2d0d8edc" x="320" y="0" width="110" height="17"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bbafe092-1cb3-413f-b188-1e7779b8fe23" x="450" y="2" width="110" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{Comision}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement uuid="8d5bf7c6-3b10-45e5-beaf-7577466bd462" x="320" y="0" width="110" height="20"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SumTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f0c0bed3-98f0-4edf-8b5f-df4a21c20a33" x="450" y="0" width="110" height="20"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SumComision}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="91405c63-712e-447a-b0a4-20611eda5877" x="240" y="0" width="331" height="1">
+					<property name="local_mesure_unitheight" value="pixel"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement uuid="b72dcbc4-bf16-4461-a2a7-eb28195d8a6c" x="240" y="1" width="70" height="20"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Totales:]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

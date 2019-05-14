@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportVentas" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b18d3278-2c3a-441d-afba-6f450575b0da">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Omnix"/>
+	<parameter name="empresa" class="java.lang.String"/>
+	<parameter name="fchdesde" class="java.lang.String"/>
+	<parameter name="fchhasta" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT INV_NUMDOC,MAE_RIF,MAE_NOMBRE,INV_FECHA,INV_CODVEN,
+SUM(INV_MTOIVA) AS IVA,SUM(INV_DESPRO+INV_DESSUB) AS DESCU,
+SUM(INV_PRECIO) AS SUBT,
+SUM(INV_PRECIO+INV_MTOIVA-INV_DESPRO-INV_DESSUB) AS TOTAL,
+EMP_NOMBRE,EMP_RIF 
+FROM DNINVENTARIO
+INNER JOIN DNMAESTRO ON INV_CODMAE=MAE_CODIGO
+INNER JOIN DNEMPRESAS ON INV_EMPRESA=EMP_CODIGO
+WHERE INV_EMPRESA=$P{empresa} 
+AND INV_FECHA>=$P{fchdesde}
+AND INV_FECHA<=$P{fchhasta}
+AND INV_CODDOC='POS'
+GROUP BY INV_NUMDOC]]>
+	</queryString>
+	<field name="INV_NUMDOC" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="MAE_RIF" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="MAE_NOMBRE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="INV_FECHA" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TOTAL" class="java.math.BigDecimal"/>
+	<field name="INV_CODVEN" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="IVA" class="java.math.BigDecimal"/>
+	<field name="DESCU" class="java.math.BigDecimal"/>
+	<field name="SUBT" class="java.math.BigDecimal"/>
+	<field name="EMP_NOMBRE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="EMP_RIF" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e15c3c7b-77a8-475d-a073-1c9b377b58f2" x="0" y="0" width="570" height="35"/>
+				<textElement textAlignment="Center">
+					<font size="27"/>
+				</textElement>
+				<text><![CDATA[Ventas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="94694c3f-fb9f-42ac-b4d5-abc8ef706016" x="7" y="48" width="63" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empresa:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0c0265a3-b0db-4c12-83f9-4c6ddab81e47" x="7" y="70" width="63" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RIF:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="af9a7def-3204-45fb-8157-44a3202bf572" x="70" y="48" width="310" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EMP_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="839b27ae-9ff5-4269-a479-8f1c3d887c62" x="70" y="70" width="94" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EMP_RIF}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="33" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="1187e96d-0bde-483d-b212-b3493672bbd5" x="200" y="10" width="80" height="17"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fchdesde}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="4c64edd2-377f-459a-ad26-bbac5c11ecec" x="150" y="10" width="50" height="16"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="b3aa9e2d-b6de-4ea5-95b9-e206fe8ea567" x="310" y="10" width="70" height="16"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fchhasta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b7150d3f-0138-4cdc-bb21-730532667dc3" x="280" y="10" width="30" height="16"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="038d141d-6133-428f-b091-3cba84fd368d" x="0" y="10" width="70" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0e567c15-612f-450a-93b3-7a109f4c3a3c" x="80" y="10" width="80" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="75592c89-df7b-4439-ba7c-f6fe8408111f" mode="Transparent" x="170" y="10" width="50" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box padding="0" topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0" firstLineIndent="0" leftIndent="0" rightIndent="0" spacingBefore="0" spacingAfter="0" tabStopWidth="40"/>
+				</textElement>
+				<text><![CDATA[RIF/ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2aecfacf-2cf4-4312-bdbc-4134a760218e" mode="Transparent" x="270" y="10" width="60" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box padding="0" topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0" firstLineIndent="0" leftIndent="0" rightIndent="0" spacingBefore="0" spacingAfter="0" tabStopWidth="40"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1e9a4e5e-aec3-42c6-a800-1f81ed1cd561" mode="Transparent" x="520" y="10" width="50" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box padding="0" topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0" firstLineIndent="0" leftIndent="0" rightIndent="0" spacingBefore="0" spacingAfter="0" tabStopWidth="40"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="c1e2326d-6dff-4537-bfa3-40a4ac8e4666" x="1" y="30" width="568" height="1">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="881962b1-d23c-4930-96be-ea9f81be5d0b" x="330" y="10" width="50" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Imp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c3a948fe-b93e-45a4-a7be-2855017109b6" x="390" y="10" width="50" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Desc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="97fd5e98-e568-41ed-a044-a9d6fd823de5" x="230" y="10" width="30" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vend]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5d083887-aad7-4a6b-a654-309b71bb2d57" x="450" y="10" width="60" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subtotal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement uuid="7a99eac1-82db-4ac8-bcd2-3e1eeb2b7c06" x="0" y="0" width="70" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{INV_NUMDOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f6a1c585-60e1-42cc-83f7-f968b68e6310" x="80" y="0" width="80" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{MAE_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1506aff5-bce7-493f-9be4-d302a81a2de0" x="170" y="-2" width="50" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{MAE_RIF}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="358e695d-024c-4a05-8b1b-15303cc973af" x="270" y="0" width="60" height="16"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{INV_FECHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="370eb69f-15e2-413e-a133-1760fb75c935" x="520" y="0" width="50" height="16"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8ad66505-13b2-4093-9fff-1832752bd5ab" x="230" y="0" width="30" height="18"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{INV_CODVEN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="feab3f74-1811-4294-bbb8-ad31806f6edb" x="330" y="0" width="50" height="16"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{IVA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ad056072-fa66-4bd6-9949-e6b1d392a821" x="390" y="0" width="50" height="17"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{DESCU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7e9069b9-d73d-4bdf-88a1-ce3163092a48" x="450" y="0" width="60" height="16"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{SUBT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><FacturaElectronica><Clave>50610091800011065021600100001010000000463100133661</Clave><NumeroConsecutivo>00100001010000000463</NumeroConsecutivo><FechaEmision>2018-09-10T14:47:45-06:00</FechaEmision><Emisor><Nombre>Tania Sanchez Badilla</Nombre><Identificacion><Tipo>01020304</Tipo><Numero>110650216</Numero></Identificacion><NombreComercial>Tania Sanchez Badilla</NombreComercial><Ubicacion><Provincia>6</Provincia><Canton>02</Canton><Distrito>01</Distrito><Barrio>01</Barrio><OtrasSenas>Frente al costado norte del Kinder, Esparza, Puntarenas.</OtrasSenas></Ubicacion><Telefono><CodigoPais>261</CodigoPais><NumTelefono>26123456752</NumTelefono></Telefono><Fax xsi.nil="true"><CodigoPais>261</CodigoPais><NumTelefono>26123456752</NumTelefono></Fax><CorreoElectronico>opticadelpacificots@gmail.com</CorreoElectronico></Emisor><Receptor><Nombre>Tania Sanchez Badilla</Nombre><Identificacion><Tipo>01020304</Tipo></Identificacion><IdentificacionExtranjero>12200003234110650216</IdentificacionExtranjero><NombreComercial>Tania Sanchez Badilla</NombreComercial><Ubicacion><Provincia>6</Provincia><Canton>02</Canton><Distrito>01</Distrito><Barrio>01</Barrio><OtrasSenas>Frente al costado norte del Kinder, Esparza, Puntarenas.</OtrasSenas></Ubicacion><Telefono xsi.nil="true"><CodigoPais>261</CodigoPais><NumTelefono>26123456752</NumTelefono></Telefono><Fax xsi.nil="true"><CodigoPais>261</CodigoPais><NumTelefono>26123456752</NumTelefono></Fax><CorreoElectronico>opticadelpacificots@gmail.com</CorreoElectronico></Receptor><CondicionVenta>01020304050699</CondicionVenta><PlazoCredito>30</PlazoCredito><MedioPago>010203040599</MedioPago><DetalleServicio><LineaDetalle><NumeroLinea>1</NumeroLinea><Codigo><Tipo>0102030499</Tipo><Codigo>0000000001</Codigo></Codigo><Cantidad>2</Cantidad><UnidadMedida>UND</UnidadMedida><UnidadMedidaComercial/><Detalle>Articulo de prueba</Detalle><PrecioUnitario>1000.50</PrecioUnitario><MontoTotal>2001</MontoTotal><MontoDescuento>100</MontoDescuento><NaturalezaDescuento>Descuento del 10</NaturalezaDescuento><SubTotal>1901</SubTotal><Impuesto><Codigo>010203040506070809101112139899</Codigo><Tarifa>13.00</Tarifa><Monto>247.13</Monto><Exoneracion><TipoDocumento>010203040599</TipoDocumento><NumeroDocumento>99</NumeroDocumento><NombreInstitucion>Institucion de la exoneracion</NombreInstitucion></Exoneracion></Impuesto><FechaEmision>2018-09-10T14:47:45-06:00</FechaEmision><MontoImpuesto>2148.13</MontoImpuesto><PorcentajeCompra>10</PorcentajeCompra><MontoTotalLinea>123123123</MontoTotalLinea></LineaDetalle></DetalleServicio><ResumenFactura><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1</TipoCambio><TotalServGravados>0</TotalServGravados><TotalServExentos>0</TotalServExentos><TotalMercanciasGravadas>2148.13</TotalMercanciasGravadas><TotalMercanciasExentas>2148.13</TotalMercanciasExentas><TotalGravado>2148.13</TotalGravado><TotalExento>2148.13</TotalExento><TotalVenta>2148.13</TotalVenta><TotalDescuentos>2148.13</TotalDescuentos><TotalVentaNeta>2148.13</TotalVentaNeta><TotalImpuesto>2148.13</TotalImpuesto><TotalComprobante>2148.13</TotalComprobante></ResumenFactura><InformacionReferencia><TipoDoc>010203040506070899</TipoDoc><Numero>12142132213</Numero><FechaEmision>2018-09-10T14:47:45-06:00</FechaEmision><Codigo>010203040599</Codigo><Razon>2018-09-10T14:47:45-06:00</Razon></InformacionReferencia><Normativa><NumeroResolucion>DGT-R-48-2016</NumeroResolucion><FechaResolucion>20-02-2017 13:22:22</FechaResolucion></Normativa><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="xmldsig-d2bbb0fd-e424-4da0-b8eb-66752e856093">
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+<ds:Reference Id="xmldsig-d2bbb0fd-e424-4da0-b8eb-66752e856093-ref0" URI="">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<ds:DigestValue>+4ikib08HIW1hmqpw3XNEPV5/vCwFIZSmz+feO5AMOw=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference URI="#xmldsig-d2bbb0fd-e424-4da0-b8eb-66752e856093-keyinfo">
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<ds:DigestValue>Pa2hydpIHNiqmEY+jtEA7ZSa1pryCmBAzKBRSThXQl0=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#xmldsig-d2bbb0fd-e424-4da0-b8eb-66752e856093-signedprops">
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<ds:DigestValue>nRiedXNjPtNkMZcTp/NUtyPpwHHueRnj3WYmIfGKqcg=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue Id="xmldsig-d2bbb0fd-e424-4da0-b8eb-66752e856093-sigvalue">
+NzwQBN6K8TWYaPFssDGzDxEfcXBVCFBH97KxIItrBVhRqJu4LkT15jJaxJiPUeJXP+l5iIJmH8k6
+6aNKm4bcB6/hogdFpTreC7aQSoLKhGnZ7ca5q/dM2mrockZ7W641zIZbdw9WcgMv1URUtvH7Poec
+QKMu+SvvtU22xMStRfTuho2A2w3ZFfMi+xyGiicVXH/tGURG1w0/ks8/0ANm+5EO279PsrIPNaOZ
+8YdPt+sqJ0ulH6qR+S1L13YYMqKKPH8bHZEOcsQSQcMHYxeRMqfPXdICcd6rDKjxDj+knk5CFBi6
+GpYLh0LBulC793r+8N7t1P3ZIJxRK6xXeZj8gQ==
+</ds:SignatureValue>
+<ds:KeyInfo Id="xmldsig-d2bbb0fd-e424-4da0-b8eb-66752e856093-keyinfo">
+<ds:X509Data>
+<ds:X509Certificate>
+MIIFSTCCAzGgAwIBAgIGAWVn68HNMA0GCSqGSIb3DQEBCwUAMFgxCzAJBgNVBAYTAkNSMR8wHQYD
+VQQKDBZNSU5JU1RFUklPIERFIEhBQ0lFTkRBMQwwCgYDVQQLDANER1QxGjAYBgNVBAMMEUNBIFBF
+UlNPTkEgRklTSUNBMB4XDTE4MDgyMzE3NTM0OFoXDTIwMDgyMjE3NTM0OFowgaUxGTAXBgNVBAUT
+EENQRi0wNi0wMjUyLTA4MjExFzAVBgNVBAQMDlVHQVJURSBBQ0VWRURPMRUwEwYDVQQqDAxNSUdV
+RUwgQU5HRUwxCzAJBgNVBAYTAkNSMRcwFQYDVQQKDA5QRVJTT05BIEZJU0lDQTEMMAoGA1UECwwD
+Q1BGMSQwIgYDVQQDDBtNSUdVRUwgQU5HRUwgVUdBUlRFIEFDRVZFRE8wggEiMA0GCSqGSIb3DQEB
+AQUAA4IBDwAwggEKAoIBAQCS3LsttFy5JpA0fPP/hn3v9z/hXt3ssPhBFhP04F3AtJkuwupYj0Wl
+uOmgX9qCKQwkkuN89DrHAyTgf5B8MsYH1VOZeo8QiLASeifxcKTP2ubotdS8s0LP6K15i+YzHTMj
+OgjgP+PD+3pHvioUK8+5N238wjGNLi3sfjT0b15hOTk+K6H5RRYc/s+Mro/Rd7aL9lZbj9HURl1c
+FATBfFSmva4U5hec8A5vKTrRy1lRO9peaJWGmix+dqosxTFn7gV6eb/CZYUxvjGhRz8P99C0Z3uW
+KFwvo2kS/rUyFa9sagGu8rh99OlpjGsS1RXs3woHER5EEsr/zUq+bqU2VXAFAgMBAAGjgcowgccw
+HwYDVR0jBBgwFoAUE/ZqQQ3toiRF0ciUqEGDfGIla1kwHQYDVR0OBBYEFCIaaqMYsv3hQwAWJ+Qe
+LUTs2i8tMAsGA1UdDwQEAwIGwDATBgNVHSUEDDAKBggrBgEFBQcDBDBjBggrBgEFBQcBAQRXMFUw
+UwYIKwYBBQUHMAKGR2h0dHBzOi8vcGtpLmNvbXByb2JhbnRlc2VsZWN0cm9uaWNvcy5nby5jci9w
+cm9kL2ludGVybWVkaWF0ZS1wZi1wZW0uY3J0MA0GCSqGSIb3DQEBCwUAA4ICAQCTpbfoU2wqx6+b
+XJPFzvCHQtbq6UodqfXPAY0A3O9WT6j1pgGsEGHZjmY1ox0JnxJhwVPxbU8yiGSyj5KPaPPY6a/i
+MR0j9UL2rSN9sUVKUbuD3+gvqrrsDqhPl1LCnrD02wZfL8I3bMLnalNW5CALsWkta0p8DQFNdjKT
+RJU6yknC6LctC429dGXz+INPVPwAAtvJGBL2XAsr0w1nj+IZ5X2CxM0zIfM+3ygZIsKMD29Ocb6c
+EKeWg2I9OwFRLJg4gTM3b5Ad8/VspHLqkJ3iGv0YWoHIFixlav0h79jRh557IsvtPG2WyN0HWe8P
+dAGjK0Fp3lOBBh7omxsu1IqGhArP7yvkd70dTyzoX3/+9Y3vRCvkNCu8JMFKLU1PQAqEmU+w3I2t
+d1Jc7sUBk/hPjw5fEwpa3gdJvaL2lntERXPVvobf5p5hIITNjGbBX+kwUd86+sevXKHWSasYGJul
+k+zxll7spZb3BcYQUZFeG33uIGVZlreoA2nZfswYAHvk8QYq2KWiqxVOUGGhTkhua6nHhm5uTcXt
+9nzmNHUltjoxfEWw+j5BJi6pWg5xqsapT+XmKIwqJ5grMVWzuzyBrF+7EzcP6FtrYmDaoUy8Mpc0
+PsXqLmYl45wzQUWghFCZ6n0yElrBtOJX2AIzNivNA3/fvGWp7eCeB0RqJwnPkg==
+</ds:X509Certificate>
+</ds:X509Data>
+<ds:KeyValue>
+<ds:RSAKeyValue>
+<ds:Modulus>
+kty7LbRcuSaQNHzz/4Z97/c/4V7d7LD4QRYT9OBdwLSZLsLqWI9FpbjpoF/agikMJJLjfPQ6xwMk
+4H+QfDLGB9VTmXqPEIiwEnon8XCkz9rm6LXUvLNCz+iteYvmMx0zIzoI4D/jw/t6R74qFCvPuTdt
+/MIxjS4t7H409G9eYTk5Piuh+UUWHP7PjK6P0Xe2i/ZWW4/R1EZdXBQEwXxUpr2uFOYXnPAObyk6
+0ctZUTvaXmiVhposfnaqLMUxZ+4Fenm/wmWFMb4xoUc/D/fQtGd7lihcL6NpEv61MhWvbGoBrvK4
+ffTpaYxrEtUV7N8KBxEeRBLK/81Kvm6lNlVwBQ==
+</ds:Modulus>
+<ds:Exponent>AQAB</ds:Exponent>
+</ds:RSAKeyValue>
+</ds:KeyValue>
+</ds:KeyInfo>
+<ds:Object><xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" xmlns:xades141="http://uri.etsi.org/01903/v1.4.1#" Target="#xmldsig-d2bbb0fd-e424-4da0-b8eb-66752e856093"><xades:SignedProperties Id="xmldsig-d2bbb0fd-e424-4da0-b8eb-66752e856093-signedprops"><xades:SignedSignatureProperties><xades:SigningTime>2018-09-19T15:41:30.861-04:00</xades:SigningTime><xades:SigningCertificate><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>zaQLM57ao3l1MIbcQx47iFiGcH4eHwQ+nyWOyAygS/c=</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>CN=CA PERSONA FISICA,OU=DGT,O=MINISTERIO DE HACIENDA,C=CR</ds:X509IssuerName><ds:X509SerialNumber>1535046828493</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>NzB0r3n5yNlK1dC9msmXtfCHvFbS1s1H4RpQUJ6oa+I=</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>CN=CA RAIZ MINISTERIO DE HACIENDA,OU=DGT,O=MINISTERIO DE HACIENDA,C=CR</ds:X509IssuerName><ds:X509SerialNumber>1487214526</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>Of5KHU6gBs6L7f0Qjul5r1yROpASEoiiN51kLFGSmRc=</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>CN=CA RAIZ MINISTERIO DE HACIENDA,OU=DGT,O=MINISTERIO DE HACIENDA,C=CR</ds:X509IssuerName><ds:X509SerialNumber>1487214316</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate><xades:SignaturePolicyIdentifier><xades:SignaturePolicyId><xades:SigPolicyId><xades:Identifier>https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/Resolucion%20Comprobantes%20Electronicos%20%20DGT-R-48-2016.pdf</xades:Identifier></xades:SigPolicyId><xades:SigPolicyHash><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</ds:DigestValue></xades:SigPolicyHash></xades:SignaturePolicyId></xades:SignaturePolicyIdentifier></xades:SignedSignatureProperties><xades:SignedDataObjectProperties><xades:CommitmentTypeIndication><xades:CommitmentTypeId><xades:Identifier>http://uri.etsi.org/01903/v1.2.2#ProofOfOrigin</xades:Identifier><xades:Description>Indicates that the signer recognizes to have created, approved and sent the signed data object</xades:Description></xades:CommitmentTypeId><xades:AllSignedDataObjects/></xades:CommitmentTypeIndication></xades:SignedDataObjectProperties></xades:SignedProperties></xades:QualifyingProperties></ds:Object>
+</ds:Signature></FacturaElectronica>

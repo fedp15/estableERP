@@ -1,0 +1,112 @@
+.root{
+    /*-fx-background-image: url("/image/fondoLogin.png");*/
+    -fx-effect: dropshadow( gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0 );
+    -fx-background-radius: 5;
+    -fx-padding: 0; /*10*/
+}
+
+.content {
+    -fx-background-color: darkgray;
+    -fx-background-radius: 5;
+    -fx-padding: 0; /*10*/
+}
+
+.pane {
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 0; /*8*/
+}
+
+.imageView{
+    -fx-border-radius: 10px;
+}
+
+/*color de fondo*/
+.background_app{
+    -fx-background-color: #00aff0;
+}
+
+/* cajas de texto */
+.text_app{
+    -fx-background-color: #cceffc;
+    -fx-text-fill: #000;
+    -fx-prompt-text-fill: #5aaff0;
+    -fx-text-box-border: transparent;        
+    -fx-background-radius: 0;
+    -fx-padding: 8;
+    -fx-font-size:14px;
+}
+
+.text_app:focused {
+    -fx-text-fill: #000;
+    -fx-background-color: #fff;     
+}
+
+/*boton de inicio de sesion*/
+.button_app{
+    -fx-background-color: #0c7daf;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-text-fill: #fff;
+    /**-fx-alignment: CENTER;*/
+}
+
+.button:hover {
+    -fx-background-color: #d6d7d9;
+    -fx-text-fill: #000;
+    -fx-text-alignment: center;
+    -fx-cursor: hand;
+}
+
+.button:pressed{
+    -fx-background-color: #b5b5b5;
+}
+/*
+.buttonWithImage { 
+    -fx-graphic: url('http://icons.iconarchive.com/icons/aha-soft/desktop-buffet/128/Pizza-icon.png');
+    -fx-background-size: 30px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 90%;
+}
+*/
+.button {
+    -fx-background-color: #ffffff;
+    /**-fx-graphic: url('http://icons.iconarchive.com/icons/aha-soft/desktop-buffet/128/Pizza-icon.png');*/
+}
+
+.label:hover {
+    -fx-background-color: #d6d7d9;
+    -fx-text-fill: #000;
+    -fx-text-alignment: center;
+    -fx-cursor: hand;
+}
+
+/**etiqueta de inicio de sesion*/
+.textb_app{
+    -fx-text-fill: #0972ba;
+    -fx-font-size:12px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.5) , 0,0,0,1 );
+}
+
+/**etiqueta ¿no puede...*/
+.textnp_app{
+    -fx-text-fill: #fff;
+    -fx-font-size:12px;
+    -fx-font-weight: normal;    
+}
+
+/*etiqueta de error*/
+.texterr_app{
+    -fx-text-fill: #a53b3f;
+    -fx-font-size:12px;
+    -fx-font-style:italic;    
+}
+
+.menu-item:hover {
+    -fx-background-color: #d6d7d9;
+    -fx-text-fill: #000;
+    -fx-text-alignment: center;
+    -fx-cursor: hand;
+}

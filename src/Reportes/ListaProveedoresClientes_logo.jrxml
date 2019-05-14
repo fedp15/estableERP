@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1121fb50-a7a0-455b-9a8c-4ef49fe3278e">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codEmpresa" class="java.lang.String"/>
+	<parameter name="pais" class="java.lang.String"/>
+	<parameter name="idRol" class="java.lang.String"/>
+	<parameter name="rolPadre" class="java.lang.String"/>
+	<parameter name="correo_empresa" class="java.lang.String"/>
+	<parameter name="telefono_empresa" class="java.lang.String"/>
+	<parameter name="direcion_empresa" class="java.lang.String"/>
+	<parameter name="rif_empresa" class="java.lang.String"/>
+	<parameter name="nombre_empresa" class="java.lang.String"/>
+	<parameter name="nombreReporte" class="java.lang.String"/>
+	<parameter name="path_logo" class="java.lang.Object"/>
+	<parameter name="idFiscal" class="java.lang.String"/>
+	<parameter name="operacion" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[CALL `sp_rpt_personas`($P{codEmpresa}, $P{pais}, $P{idRol}, $P{rolPadre}, $P{operacion}, $P{idFiscal});]]>
+	</queryString>
+	<field name="id_company" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pers_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="razon_social" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="condic" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rif" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="contri" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ret_iva" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pers_cred_dias" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tip_per" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tip_cli_prov" class="java.lang.String">
+		<fieldDescription><![CDATA[Tipo de Cliente y Proveedor]]></fieldDescription>
+	</field>
+	<field name="pers_cred_limit" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pers_moneda" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pers_tipo_precio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="observaciones" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rol_nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pers_fecha_ingreso" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pers_dcto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pers_status_fiscal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pers_activo" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="correo_envio_cnbt_electronic" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pai_nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="est_nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mun_nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="par_nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sbs_nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dir_descri" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="135" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="30" width="555" height="26" uuid="3e9302b2-05bf-4e58-992c-a3c8c3da0fd3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nombreReporte}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="47" y="87" width="281" height="11" uuid="d4ada5c8-9c16-49f5-8261-334d5a5e21e8"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nombre_empresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="98" width="100" height="11" uuid="b15e8bb9-9e9e-4967-8f52-c7d579240bcd"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{telefono_empresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="109" width="100" height="11" uuid="95872e94-2328-49f3-b4da-49d1cb3b71c7"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{correo_empresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="47" y="121" width="502" height="11" uuid="f5dcf2a6-370c-4050-a6a9-b8cc8960a023"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{direcion_empresa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="6" y="121" width="41" height="11" uuid="0771cac6-171e-462a-b423-e8ab7232929c"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Direccion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="87" width="41" height="11" uuid="a36f5ffe-059e-4de5-bbe1-f20dac05702d"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Empresa:]]></text>
+			</staticText>
+			<image hAlign="Center">
+				<reportElement x="5" y="2" width="180" height="82" uuid="c189ffb1-7f3e-4b0c-a2d9-8ec0f9eea7ce"/>
+				<imageExpression><![CDATA[$P{path_logo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="1" width="555" height="18" uuid="a7e57773-47b3-42d4-8c81-5a886f59be36"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="6" y="2" width="72" height="17" uuid="e2ab7bc5-c01f-461d-94db-5980345190ea"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id.Fiscal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="2" width="104" height="17" uuid="07f97fbd-94cb-4241-a21c-9487980b08ab"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[razon_social]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="2" width="87" height="17" uuid="c1539e47-ce7c-49ff-982f-3063d8674609"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Correo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="409" y="2" width="80" height="17" uuid="b8a38df5-6039-4eca-b23a-141baca1ac23"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<line>
+				<reportElement x="76" y="2" width="1" height="17" uuid="9d2fc4b8-4d37-4018-a74b-547820162c4b"/>
+			</line>
+			<line>
+				<reportElement x="290" y="1" width="1" height="17" uuid="b63134d1-fb9f-439c-8ad9-4ed3d3aebd80"/>
+			</line>
+			<line>
+				<reportElement x="405" y="2" width="1" height="17" uuid="fd177e69-742b-4adf-aa3d-fc3f023db1cc"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="6" y="0" width="70" height="12" uuid="b8970b32-693a-4218-8538-de52a7a08965"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rif}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="0" width="211" height="12" uuid="68427397-cd2e-4411-94b3-1ef041452c08"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razon_social}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="295" y="0" width="108" height="12" uuid="476ab86d-0cc8-47d3-b01c-4cab8e3738a4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{correo_envio_cnbt_electronic}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="0" width="80" height="12" uuid="2a121341-bf00-40a9-98cb-606d349a9ca7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pers_status_fiscal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="147" y="12" width="399" height="10" uuid="7a2909d5-8ae0-4da2-8629-cb4825307a77"/>
+				<textElement verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dir_descri}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="103" y="12" width="41" height="10" uuid="63194a5a-6ec1-4e62-a24f-3a8dd25d3736"/>
+				<textElement verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Direccion:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="23" width="555" height="1" uuid="fe4234ae-805d-4068-9ae4-a42a4fe831cb"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="14" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="14" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="13" splitType="Stretch"/>
+	</summary>
+</jasperReport>

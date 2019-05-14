@@ -1,0 +1,454 @@
+package Vista;
+
+import Controlador.ControladorCargos;
+import Listener.ListenerBtnCargos;
+import Modelos.VariablesGlobales;
+import java.awt.event.KeyEvent;
+import util.Internacionalizacion;
+import Modelos.ModelCargos;
+import static Vista.MenuPrincipal.escritorioERP;
+import java.awt.Color;
+import javax.swing.JDesktopPane;
+import javax.swing.JTable;
+import static util.ColorApp.colorForm;
+
+public class Cargos extends javax.swing.JInternalFrame {
+    private String origen;
+    private JDesktopPane desktop;
+    Internacionalizacion idioma = Internacionalizacion.geInternacionalizacion();
+    VariablesGlobales VarGlobales = VariablesGlobales.getDatosGlobales();
+    ModelCargos modelCargos = ModelCargos.getModelCargos();
+    ControladorCargos controladorCargos = new ControladorCargos();
+
+    /**
+     * Creates new form Cargos
+     * @param lLista
+     */
+    public Cargos(String origen) {
+        initComponents();
+        this.origen = origen;
+        inicializaClase();
+        
+        if(origen.equals("ERP")){
+            desktop = escritorioERP;
+        }else{
+//            desktop = escritorio;
+        }
+        
+        modelCargos.setDesktop(desktop);
+        modelCargos.cargaTablas();
+        
+        stylos();      
+    }
+    
+    public void stylos(){
+        idioma.setLocale(VarGlobales.getIdioma());
+        jPanel1.setBackground(Color.decode(colorForm)); 
+        jPanel2.setBackground(Color.decode(colorForm));
+//        jLabel_Title.setText(idioma.loadLangComponent().getString("lbTituloFormCargos"));
+        jTabbedPane1.setTitleAt(0, idioma.loadLangComponent().getString("tabCargos"));
+        jLabCodCargo.setText(idioma.loadLangComponent().getString("lbCodigo"));
+        jLabNomCar.setText(idioma.loadLangComponent().getString("lbNombre"));
+        bt_agregar.setText(idioma.loadLangComponent().getString("btnAgregar"));
+        bt_Modificar.setText(idioma.loadLangComponent().getString("btnModificar"));
+        bt_Eliminar.setText(idioma.loadLangComponent().getString("btnEliminar"));
+        bt_save.setText(idioma.loadLangComponent().getString("btnGrabar"));
+        bt_cancel.setText(idioma.loadLangComponent().getString("btnCancelar"));
+        bt_find.setText(idioma.loadLangComponent().getString("btnBuscar"));
+        bt_Atras.setText(idioma.loadLangComponent().getString("btnAnterior"));
+        bt_Siguiente.setText(idioma.loadLangComponent().getString("btnSiguiente"));
+        bt_salir.setText(idioma.loadLangComponent().getString("btnSalir"));
+        
+        bt_agregar.setActionCommand("Agregar"); bt_Modificar.setActionCommand("Modificar");
+        bt_save.setActionCommand("Grabar"); bt_cancel.setActionCommand("Cancelar");
+        bt_Eliminar.setActionCommand("Eliminar"); bt_find.setActionCommand("Buscar");
+        bt_Atras.setActionCommand("Anterior"); bt_Siguiente.setActionCommand("Adelante"); 
+        bt_salir.setActionCommand("Salir");
+               
+        jPanel1.setBackground(Color.decode(colorForm));
+        jPanel2.setBackground(Color.decode(colorForm));
+               
+        bt_agregar.addActionListener(new ListenerBtnCargos());
+        bt_Modificar.addActionListener(new ListenerBtnCargos());
+        bt_Eliminar.addActionListener(new ListenerBtnCargos());
+        bt_save.addActionListener(new ListenerBtnCargos());
+        bt_find.addActionListener(new ListenerBtnCargos());
+        bt_cancel.addActionListener(new ListenerBtnCargos());
+        bt_Atras.addActionListener(new ListenerBtnCargos());
+        bt_Siguiente.addActionListener(new ListenerBtnCargos());
+        bt_salir.addActionListener(new ListenerBtnCargos());
+        modelCargos.cargaTablas();
+        ckActivo.setVisible(false);
+        
+        valida_reg_tablas(tablaCargo);
+    }
+    
+    private void inicializaClase(){
+        modelCargos.setVista(this);
+        jTxtCar_Codigo.setEnabled(false);
+        modelCargos.setComponent(jTxtCar_Codigo, jTxtCar_Nombre, tablaCargo, jTabbedPane1);
+        modelCargos.setButton(bt_agregar, bt_Modificar, bt_save, bt_Eliminar, bt_cancel, bt_find, bt_Atras, 
+                               bt_Siguiente, bt_salir);
+        modelCargos.setOrigen(origen);
+    }
+    
+    private void valida_reg_tablas(JTable tabla){
+        //inicializaClase();
+        int Reg_Tablas=tabla.getRowCount();
+
+        if(Reg_Tablas==0){
+           modelCargos.habilitar("Inicializa");
+           modelCargos.barButtonState2();
+           modelCargos.getCodConsecutivo();
+        }else{
+           modelCargos.deshabilitar();
+           modelCargos.barButtonState1();
+           bt_save.setVisible(false);bt_cancel.setVisible(false);
+           modelCargos.ejecutaHilo(false);
+           
+           tablaCargo.getSelectionModel().setSelectionInterval(tablaCargo.getRowCount()-1, tablaCargo.getRowCount()-1);
+        }   
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        jLabCodCargo = new javax.swing.JLabel();
+        jTxtCar_Codigo = new javax.swing.JTextField();
+        jLabNomCar = new javax.swing.JLabel();
+        ckActivo = new javax.swing.JCheckBox();
+        jTxtCar_Nombre = new javax.swing.JTextField();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tablaCargo = new javax.swing.JTable();
+        jPanel5 = new javax.swing.JPanel();
+        bt_salir = new com.l2fprod.common.swing.JLinkButton();
+        bt_agregar = new com.l2fprod.common.swing.JLinkButton();
+        bt_Modificar = new com.l2fprod.common.swing.JLinkButton();
+        bt_save = new com.l2fprod.common.swing.JLinkButton();
+        bt_Eliminar = new com.l2fprod.common.swing.JLinkButton();
+        bt_cancel = new com.l2fprod.common.swing.JLinkButton();
+        bt_find = new com.l2fprod.common.swing.JLinkButton();
+        bt_Atras = new com.l2fprod.common.swing.JLinkButton();
+        bt_Siguiente = new com.l2fprod.common.swing.JLinkButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabCodCargo.setText("Codigo");
+
+        jLabNomCar.setText("Nombre");
+
+        ckActivo.setBackground(new java.awt.Color(255, 255, 255));
+        ckActivo.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        ckActivo.setSelected(true);
+        ckActivo.setText("Activo");
+        ckActivo.setToolTipText("");
+        ckActivo.setEnabled(false);
+
+        tablaCargo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tablaCargo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaCargoMouseClicked(evt);
+            }
+        });
+        tablaCargo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tablaCargoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tablaCargoKeyReleased(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tablaCargo);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabCodCargo)
+                            .addComponent(jLabNomCar))
+                        .addGap(48, 48, 48)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTxtCar_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxtCar_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ckActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabCodCargo)
+                    .addComponent(jTxtCar_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ckActivo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTxtCar_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabNomCar))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Cargos", jPanel2);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(11, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel5.setBackground(new java.awt.Color(105, 105, 105));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel5.setForeground(new java.awt.Color(255, 255, 255));
+
+        bt_salir.setBackground(new java.awt.Color(105, 105, 105));
+        bt_salir.setForeground(new java.awt.Color(255, 255, 255));
+        bt_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/exit.png"))); // NOI18N
+        bt_salir.setText("Cerrar");
+        bt_salir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bt_salir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        bt_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_salirActionPerformed(evt);
+            }
+        });
+
+        bt_agregar.setBackground(new java.awt.Color(105, 105, 105));
+        bt_agregar.setForeground(new java.awt.Color(255, 255, 255));
+        bt_agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/add.png"))); // NOI18N
+        bt_agregar.setText("Agregar");
+        bt_agregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bt_agregar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        bt_Modificar.setBackground(new java.awt.Color(105, 105, 105));
+        bt_Modificar.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/edit.png"))); // NOI18N
+        bt_Modificar.setText("Modificar");
+        bt_Modificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bt_Modificar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        bt_save.setBackground(new java.awt.Color(105, 105, 105));
+        bt_save.setForeground(new java.awt.Color(255, 255, 255));
+        bt_save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/save.png"))); // NOI18N
+        bt_save.setText("Guardar");
+        bt_save.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bt_save.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        bt_Eliminar.setBackground(new java.awt.Color(105, 105, 105));
+        bt_Eliminar.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete_2.png"))); // NOI18N
+        bt_Eliminar.setText("Delete");
+        bt_Eliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bt_Eliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        bt_cancel.setBackground(new java.awt.Color(105, 105, 105));
+        bt_cancel.setForeground(new java.awt.Color(255, 255, 255));
+        bt_cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete_bar_butto_1.png"))); // NOI18N
+        bt_cancel.setText("Cancelar");
+        bt_cancel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bt_cancel.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        bt_find.setBackground(new java.awt.Color(105, 105, 105));
+        bt_find.setForeground(new java.awt.Color(255, 255, 255));
+        bt_find.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/find_bar_butto_1.png"))); // NOI18N
+        bt_find.setText("Buscar");
+        bt_find.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bt_find.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        bt_Atras.setBackground(new java.awt.Color(105, 105, 105));
+        bt_Atras.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/previous.png"))); // NOI18N
+        bt_Atras.setText("Guardar");
+        bt_Atras.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bt_Atras.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        bt_Siguiente.setBackground(new java.awt.Color(105, 105, 105));
+        bt_Siguiente.setForeground(new java.awt.Color(255, 255, 255));
+        bt_Siguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/next.png"))); // NOI18N
+        bt_Siguiente.setText("Guardar");
+        bt_Siguiente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bt_Siguiente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(bt_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(bt_Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(bt_save, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(bt_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(bt_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(bt_find, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(bt_Atras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(bt_Siguiente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bt_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bt_salir, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                    .addComponent(bt_Atras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bt_agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bt_Modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bt_save, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bt_find, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bt_cancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bt_Eliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bt_Siguiente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+    }//GEN-LAST:event_jTabbedPane1StateChanged
+
+    private void tablaCargoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaCargoKeyReleased
+        if(evt.getKeyCode() == KeyEvent.VK_DOWN){
+            modelCargos.actualizaJtable(tablaCargo.getSelectedRow());
+            modelCargos.setnAtras(tablaCargo.getSelectedRow());
+        }
+        
+        if(evt.getKeyCode() == KeyEvent.VK_UP){
+            modelCargos.actualizaJtable(tablaCargo.getSelectedRow());
+            modelCargos.setnAtras(tablaCargo.getSelectedRow());
+        }
+    }//GEN-LAST:event_tablaCargoKeyReleased
+
+    private void tablaCargoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaCargoKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            modelCargos.actualizaJtable(tablaCargo.getSelectedRow());
+        }
+    }//GEN-LAST:event_tablaCargoKeyPressed
+
+    private void tablaCargoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaCargoMouseClicked
+        modelCargos.actualizaJtable(tablaCargo.getSelectedRow());
+        modelCargos.setnAtras(tablaCargo.getSelectedRow());
+    }//GEN-LAST:event_tablaCargoMouseClicked
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        modelCargos.setVista(this);
+    }//GEN-LAST:event_formInternalFrameActivated
+
+    private void bt_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_salirActionPerformed
+
+    }//GEN-LAST:event_bt_salirActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.l2fprod.common.swing.JLinkButton bt_Atras;
+    private com.l2fprod.common.swing.JLinkButton bt_Eliminar;
+    private com.l2fprod.common.swing.JLinkButton bt_Modificar;
+    private com.l2fprod.common.swing.JLinkButton bt_Siguiente;
+    private com.l2fprod.common.swing.JLinkButton bt_agregar;
+    private com.l2fprod.common.swing.JLinkButton bt_cancel;
+    private com.l2fprod.common.swing.JLinkButton bt_find;
+    private com.l2fprod.common.swing.JLinkButton bt_salir;
+    private com.l2fprod.common.swing.JLinkButton bt_save;
+    public static javax.swing.JCheckBox ckActivo;
+    private javax.swing.JLabel jLabCodCargo;
+    private javax.swing.JLabel jLabNomCar;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    public static javax.swing.JTextField jTxtCar_Codigo;
+    public static javax.swing.JTextField jTxtCar_Nombre;
+    private javax.swing.JTable tablaCargo;
+    // End of variables declaration//GEN-END:variables
+}

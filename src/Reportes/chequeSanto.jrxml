@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="chequeSanto" language="groovy" pageWidth="572" pageHeight="752" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="6fc03fed-615c-4652-99a8-7781a6557a0f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Omnixdb"/>
+	<parameter name="empresa" class="java.lang.String"/>
+	<parameter name="codmae" class="java.lang.String"/>
+	<parameter name="tipdoc" class="java.lang.String"/>
+	<parameter name="numdoc" class="java.lang.String"/>
+	<parameter name="id" class="java.lang.String"/>
+	<parameter name="monto" class="java.lang.String"/>
+	<parameter name="nombre" class="java.lang.String"/>
+	<parameter name="year" class="java.lang.String"/>
+	<parameter name="fecha" class="java.lang.String"/>
+	<parameter name="letras2" class="java.lang.String"/>
+	<parameter name="letras1" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT pag_id,id_pers,pag_monto,pag_fecha,razon_social FROM dnpagos
+INNER JOIN dnpersonas ON id_pers_bene = pers_id
+WHERE pag_id=$P{id}
+AND numdoc_orig=$P{numdoc}
+AND typ_doc_origin=$P{tipdoc}
+AND id_pers=$P{codmae}
+AND pag_empresa=$P{empresa}]]>
+	</queryString>
+	<field name="pag_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Id transaccion]]></fieldDescription>
+	</field>
+	<field name="id_pers" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id Cliente]]></fieldDescription>
+	</field>
+	<field name="pag_monto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pag_fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="razon_social" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="229" splitType="Stretch">
+			<textField>
+				<reportElement uuid="ddf0a732-d284-4ef0-b6bc-65f97c89c3df" x="325" y="23" width="100" height="13">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{monto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dbdd47d3-114f-4d4d-bdcf-0b7f75fb493b" x="70" y="63" width="411" height="13">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="61b672c0-bcc3-4533-baba-916d2b13f0bb" x="150" y="114" width="84" height="13">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{year}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b9ec5232-c4a4-4e0b-8f4d-22b469d50543" x="14" y="114" width="128" height="13">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2d089375-56ae-4bfd-b2fb-db373336ca6e" x="14" y="97" width="184" height="13">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{letras2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1f963a93-3dea-47fd-b057-ff606c4f41e4" x="85" y="80" width="396" height="13">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{letras1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
+<!-- 2016-07-25T23:37:48 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EtiquetasCodigoBarras" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="454bebed-abb6-4117-9c56-9002f5368d68">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="codProduct" class="java.lang.String"/>
+	<field name="nomProduct" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="68" splitType="Stretch">
+			<textField>
+				<reportElement x="3" y="48" width="159" height="17" uuid="7548429b-0466-40f7-a48b-0c2127957823"/>
+				<textFieldExpression><![CDATA[$F{nomProduct}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="-6" y="0" width="165" height="40" uuid="318c5a3d-b30a-4334-8a6d-2b3c18615eb2">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.barHeight" value="pixel"/>
+				</reportElement>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false" barHeight="50">
+					<jr:codeExpression><![CDATA[$F{codProduct}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<textField>
+				<reportElement x="3" y="32" width="159" height="13" uuid="1a3e210c-ea48-4626-b679-bdcc77566867"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codProduct}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
